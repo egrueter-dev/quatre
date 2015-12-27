@@ -10,6 +10,7 @@ var onBeforeAction = function(){
     this.render('/login');
   }
 }
+//
 
 // This could probably be dried up
 Router.route('/dashboard', {onBeforeAction});
