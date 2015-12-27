@@ -10,7 +10,6 @@ var onBeforeAction = function(){
     this.render('/login');
   }
 }
-//
 
 // This could probably be dried up
 Router.route('/dashboard', {onBeforeAction});
@@ -26,6 +25,11 @@ Router.route('/', {
   template: 'landing'
 });
 
-Router.route('/login');
-Router.route('/register');
+Router.route('/login', {
+  layoutTemplate: 'login'
+});
+
+Router.route('/register', {
+  layoutTemplate: 'register'
+});
 

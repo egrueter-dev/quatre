@@ -7,6 +7,16 @@ if (Meteor.isClient) {
 
   });
 
+  //Validations:
+
+  Template.login.onRendered(function(){
+    $('.login').validate();
+  });
+
+  Template.register.onRendered(function(){
+    $('.register').validate();
+  });
+
   // Template Events - separate into standalone files
 
   Template.main.events({

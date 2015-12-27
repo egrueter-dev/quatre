@@ -20,3 +20,4 @@ iron:router
 mfactory:admin-lte
 fortawesome:fontawesome
 accounts-password
+themeteorchef:jquery-validation
