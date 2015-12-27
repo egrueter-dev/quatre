@@ -1,0 +1,31 @@
+<head>
+  <title>quatre!</title>
+</head>
+
+<template name="main">
+ {{#AdminLTE skin="green" fixed="true"}}
+ <h1>Main Application Template</h1>
+  <h5>This is what the user sees when logged in...</h5>
+  <aside class="main-sidebar">
+        <a href="{{pathFor route='dashboard'}}">Dashboard</a>
+        <a href="{{pathFor route='inbox'}}">Inbox</a>
+        <a href="{{pathFor route='jobs'}}">Jobs</a>
+        <a href="{{pathFor route='teams'}}">Teams</a>
+        <a href="{{pathFor route='messages'}}">Messages</a>
+    </ul>
+  </aside>
+ {{/AdminLTE}}
+  {{> yield }}
+ <p>Copyright &copy; Todos, 2015 </p>
+</template>
+
+<template name="landing">
+  <h1> quatre - landing page </h1>
+  <form>
+    <input type='text' name='email' placeholder='you@email.com'>
+    <input type='submit'>
+  </form>
+</template>
+
+
+
