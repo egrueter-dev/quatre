@@ -3,20 +3,30 @@
 </head>
 
 <template name="main">
- {{#AdminLTE skin="green" fixed="true"}}
- <h1>Main Application Template</h1>
+  {{#AdminLTE skin="blue-light" fixed="true"}}
+  <h1>Main Application Template</h1>
   <h5>This is what the user sees when logged in...</h5>
   <aside class="main-sidebar">
-        <a href="{{pathFor route='dashboard'}}">Dashboard</a>
-        <a href="{{pathFor route='inbox'}}">Inbox</a>
-        <a href="{{pathFor route='jobs'}}">Jobs</a>
-        <a href="{{pathFor route='teams'}}">Teams</a>
-        <a href="{{pathFor route='messages'}}">Messages</a>
-    </ul>
+    <div class="sidebar">
+      <div class="user-panel">
+        <div class="pull-left image"></div>
+        <div class="pull-left info">
+          <p>User Name</p>
+        </div>
+      </div>
+      <ul class="sidebar-menu">
+        <li class="header">HEADER</li>
+        <li><a href="{{pathFor route='dashboard'}}">Dashboard</a></li>
+        <li><a href="{{pathFor route='inbox'}}">Inbox</a></li>
+        <li><a href="{{pathFor route='jobs'}}">Jobs</a></li>
+        <li><a href="{{pathFor route='teams'}}">Teams</a></li>
+        <li><a href="{{pathFor route='messages'}}">Messages</a></li>
+      </ul>
+    </div>
   </aside>
- {{/AdminLTE}}
+  {{/AdminLTE}}
   {{> yield }}
- <p>Copyright &copy; Todos, 2015 </p>
+  <p>Copyright &copy; Todos, 2015 </p>
 </template>
 
 <template name="landing">
