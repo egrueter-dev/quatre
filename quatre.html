@@ -21,8 +21,8 @@
             <li class="user-header">
               <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
               <p>
-                Alexander Pierce - Web Developer
-                <small>Member since Nov. 2012</small>
+                Alexander Pierc
+                <small>Position title here</small>
               </p>
             </li>
             <li class="user-body">
@@ -41,7 +41,9 @@
                 <a href="#" class="btn btn-default btn-flat">Profile</a>
               </div>
               <div class="pull-right">
-                <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                {{#if currentUser}}
+                  <a href="#" class="logout">Sign out</a>
+                {{/if}}
               </div>
             </li>
           </ul>
@@ -75,14 +77,5 @@
   <p>Copyright &copy; Todos, 2015 </p>
   {{/AdminLTE}}
 </template>
-
-<template name="landing">
-  <h1> quatre - landing page </h1>
-  <form>
-    <input type='text' name='email' placeholder='you@email.com'>
-    <input type='submit'>
-  </form>
-</template>
-
 
 
