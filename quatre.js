@@ -4,8 +4,28 @@ if (Meteor.isClient) {
   Meteor.subscribe('beta-users')
 
   Template.landing.helpers({
-
   });
+
+  Template.main.helpers({
+    'username': function(){
+      // This should be a default only if a full name is not avail
+      return Meteor.user().emails[0].address
+    }
+  });
+
+  Template.profile.helpers({
+    'email': function(){
+      // This should be a default only if a name is not avail
+      return Meteor.user().emails[0].address
+    },
+    'username': function(){
+      return Meteor.user().username
+    },
+    'company': function(){
+      return Meteor.user().profile.company
+    }
+  });
+
 
   //Validations:
 
@@ -19,12 +39,38 @@ if (Meteor.isClient) {
 
   // Template Events - separate into standalone files
 
+  Template.profile.events({
+    'keyup [name=username]': function(event){
+      if(event.which == 13 || event.which == 27) {
+        $(event.target).blur();
+      } else {
+        var username = $(event.target).val();
+        var id = Meteor.user()._id
+        Meteor.call('updateUserName', username, id);
+      }
+    },
+    'keyup [name=company]': function(event){
+      if(event.which == 13 || event.which == 27) {
+        $(event.target).blur();
+      } else {
+        var companyName = $(event.target).val();
+        var id = Meteor.user()._id
+        Meteor.call('updateCompanyName', companyName, id);
+      }
+    }
+
+  });
+
   Template.main.events({
-   'click .logout': function(event){
-     event.preventDefault();
-     Meteor.logout();
-     Router.go('/landing')
-   }
+    'click .logout': function(event){
+      event.preventDefault();
+      Meteor.logout();
+      Router.go('/landing')
+    },
+    'click .profile':function(event){
+      event.preventDefault();
+      Router.go('/profile')
+    }
   });
 
   Template.login.events({
@@ -78,9 +124,13 @@ if (Meteor.isServer) {
     'userCreate': function(email, password){
       // Accounts.createUser provided by accounts-password
       Accounts.createUser({email: email, password: password});
-
-      console.log(response);
     },
+    'updateUserName': function(userName, id){
+      Meteor.users.update({_id: id}, {$set: {username: userName}});
+    },
+    'updateCompanyName': function(companyName, id){
+     Meteor.users.update({_id: id}, {$set:{"profile.company": companyName}})
+    }
   })
 
   Meteor.startup(function () {
@@ -93,11 +143,3 @@ if (Meteor.isServer) {
 // Routes and form capture for landing page
 // Login/Logout
 
-// Layout file with navigation
-//
-// Navigation:
-// Dashboard home
-// Inbox
-// Messages
-// Jobs
-// Teams

@@ -1,5 +1,6 @@
 Router.configure({
-  layoutTemplate: 'main'
+  layoutTemplate: 'main',
+  loadingTemplate: 'loading'
 });
 
 var onBeforeAction = function(){
@@ -17,6 +18,7 @@ Router.route('/inbox', {onBeforeAction});
 Router.route('/jobs', {onBeforeAction});
 Router.route('/teams', {onBeforeAction});
 Router.route('/messages', {onBeforeAction});
+Router.route('/profile', {onBeforeAction});
 
 // The below should not conform to the 'main' template.
 Router.route('/', {
