@@ -61,12 +61,25 @@
       </div>
       <ul class="sidebar-menu">
         <li class="header">HEADER</li>
-        <li><a href="{{pathFor route='dashboard'}}">Dashboard</a></li>
-        <li><a href="{{pathFor route='inbox'}}">Inbox</a></li>
-        <li><a href="{{pathFor route='jobs'}}">Jobs</a></li>
-        <li><a href="{{pathFor route='teams'}}">Teams</a></li>
-        <li><a href="{{pathFor route='messages'}}">Messages</a></li>
-        <li><a href="{{pathFor route='profile'}}">Profile</a></li>
+        <li><a href="{{pathFor route='dashboard'}}">
+            <i class="fa fa-dashboard"></i>
+            Dashboard</a></li>
+        <li><a href="{{pathFor route='inbox'}}">
+            <i class="fa fa-envelope"></i>
+            Inbox
+            <small class="label pull-right bg-red">3</small></a></li>
+        <li><a href="{{pathFor route='jobs'}}">
+            <i class="fa fa-files-o"></i>
+            Jobs</a></li>
+        <li><a href="{{pathFor route='teams'}}">
+            <i class="fa fa-users"></i>
+            Teams</a></li>
+        <li><a href="{{pathFor route='messages'}}">
+            <i class="fa fa-edit"></i>
+            Messages</a></li>
+        <li><a href="{{pathFor route='profile'}}">
+            <i class="fa fa-gear"></i>
+            Profile</a></li>
       </ul>
     </div>
   </div>

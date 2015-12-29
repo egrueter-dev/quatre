@@ -91,10 +91,6 @@ if (Meteor.isClient) {
     };
   };
 
-  Template.map.destroyed = function () {
-    this.drawTimeline.stop();
-  };
-
   // Login & Register Validations:
 
   Template.login.onRendered(function(){
