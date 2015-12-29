@@ -26,6 +26,71 @@ if (Meteor.isClient) {
     }
   });
 
+  // Depreciated Meteor Syntax
+  // Move this to it's own file.
+  Template.dashboard.topGenresChart = function() {
+    return {
+      chart: {
+        type: 'area'
+      },
+      title: {
+        text: 'chart title'
+      },
+      subtitle: {
+        text: 'subtext'
+      },
+      xAxis: {
+        categories: ['mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sept'],
+        tickmarkPlacement: 'off',
+        title: {
+          enabled: false
+        }
+      },
+      yAxis: {
+        gridLineWidth: 0,
+        minorGridLineWidth: 0,
+        title: {
+          text: 'Billions'
+        },
+        labels: {
+          formatter: function () {
+            return this.value / 1000;
+          }
+        }
+      },
+      tooltip: {
+        shared: true,
+        valueSuffix: 'thousands'
+      },
+      plotOptions: {
+        area: {
+          stacking: 'normal',
+          lineColor: '#666666',
+          lineWidth: 1,
+          marker: {
+            enabled: false
+           // lineWidth: 1,
+           // lineColor: '#666666'
+          }
+        }
+      },
+      series: [{
+        name: 'Twitter',
+        data: [502, 635, 809, 947, 1402, 3634, 5268]
+      }, {
+        name: 'Facebook',
+        data: [106, 107, 111, 133, 221, 767, 1766]
+      }, {
+        name: 'Linkedin',
+        data: [163, 203, 276, 408, 547, 729, 628]
+      }]
+
+    };
+  };
+
+  Template.map.destroyed = function () {
+    this.drawTimeline.stop();
+  };
 
   //Validations:
 
@@ -64,7 +129,7 @@ if (Meteor.isClient) {
     'click .logout': function(event){
       event.preventDefault();
       Meteor.logout();
-      Router.go('/landing')
+      Router.go('/')
     },
     'click .profile':function(event){
       event.preventDefault();
