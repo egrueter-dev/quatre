@@ -21,3 +21,5 @@ mfactory:admin-lte
 fortawesome:fontawesome
 accounts-password
 themeteorchef:jquery-validation
+cfs:standard-packages
+cfs:gridfs

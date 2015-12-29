@@ -58,7 +58,6 @@ if (Meteor.isClient) {
         Meteor.call('updateCompanyName', companyName, id);
       }
     }
-
   });
 
   Template.main.events({
@@ -129,7 +128,7 @@ if (Meteor.isServer) {
       Meteor.users.update({_id: id}, {$set: {username: userName}});
     },
     'updateCompanyName': function(companyName, id){
-     Meteor.users.update({_id: id}, {$set:{"profile.company": companyName}})
+      Meteor.users.update({_id: id}, {$set:{"profile.company": companyName}})
     }
   })
 
