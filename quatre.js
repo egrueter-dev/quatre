@@ -34,13 +34,13 @@ if (Meteor.isClient) {
         type: 'area'
       },
       title: {
-        text: 'chart title'
+        text: 'Monthly Visitor Traffic'
       },
       subtitle: {
-        text: 'subtext'
+        text: 'Mar 2015 - Feb 2015'
       },
       xAxis: {
-        categories: ['mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sept'],
+        categories: ['mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sept', 'oct', 'nov', 'jan', 'feb'],
         tickmarkPlacement: 'off',
         title: {
           enabled: false
@@ -50,7 +50,7 @@ if (Meteor.isClient) {
         gridLineWidth: 0,
         minorGridLineWidth: 0,
         title: {
-          text: 'Billions'
+          text: 'Thousands'
         },
         labels: {
           formatter: function () {
@@ -60,13 +60,13 @@ if (Meteor.isClient) {
       },
       tooltip: {
         shared: true,
-        valueSuffix: 'thousands'
+        //valueSuffix: 'thousands'
       },
       plotOptions: {
         area: {
           stacking: 'normal',
           lineColor: '#666666',
-          lineWidth: 1,
+          lineWidth: 0,
           marker: {
             enabled: false
            // lineWidth: 1,
@@ -75,14 +75,17 @@ if (Meteor.isClient) {
         }
       },
       series: [{
+        name: 'Linkedin',
+        color: '#3C8DBC',
+        data: [3000, 2200, 1809, 3000, 1500, 4000, 5268, 1500, 3400, 7000, 4500]
+      }, {
         name: 'Twitter',
-        data: [502, 635, 809, 947, 1402, 3634, 5268]
+        color: '#00A65A',
+        data: [3600, 2007, 1011, 3003, 2000, 3000, 2000, 6000, 3200, 1000, 4300]
       }, {
         name: 'Facebook',
-        data: [106, 107, 111, 133, 221, 767, 1766]
-      }, {
-        name: 'Linkedin',
-        data: [163, 203, 276, 408, 547, 729, 628]
+        color: '#dd4b39',
+        data: [1630, 2003, 2706, 4008, 5407, 7209, 6028, 2003, 1630, 4008, 7000]
       }]
 
     };
@@ -92,7 +95,7 @@ if (Meteor.isClient) {
     this.drawTimeline.stop();
   };
 
-  //Validations:
+  // Login & Register Validations:
 
   Template.login.onRendered(function(){
     $('.login').validate();
