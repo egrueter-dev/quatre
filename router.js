@@ -20,6 +20,13 @@ Router.route('/teams', {onBeforeAction});
 Router.route('/messages', {onBeforeAction});
 Router.route('/profile', {onBeforeAction});
 
+
+// This route needs to be refactored
+
+Router.route('/jobs/:_id',function() {
+
+});
+
 // The below should not conform to the 'main' template.
 Router.route('/', {
   name: 'landing',

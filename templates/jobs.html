@@ -1,7 +1,7 @@
 <template name="job">
   <tr>
     <td>timestamp </td>
-    <td><p class='job-details'><a href="">{{Title}} (no title) option</a></p></td>
+    <td><p><a href="">{{Title}} (no title) option</a></p></td>
     <td><span class="label label-warning">Pending</span></td>
     <td>
       <button class='deleteJob' value='{{id}}'>Delete Job (style this properly)</button>
@@ -19,10 +19,6 @@
     <p>Description: <input type="description" name="description"></p>
     <p><input type="submit" value="Create Job (flash and redirect to the job page"></p>
   </form>
-</template>
-
-<template name="jobs-layout">
-
 </template>
 
 <template name='jobs'>
@@ -70,6 +66,25 @@
     </section>
   </section>
 </template>
+
+<template name='jobDetails'>
+  <section class="content-header">
+    <h1> Jobs </h1>
+    <section class="content">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="box">
+             <canvas id="" style="height: 217px; width: 434px;" width="868" height="434"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+</template>
+
+
+
 
 
 
