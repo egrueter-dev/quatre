@@ -1,13 +1,23 @@
-jobs = new Mongo.Collection('jobs');
+Jobs = new Mongo.Collection('jobs');
 
 if (Meteor.isClient) {
   Meteor.subscribe('jobs')
 
-  // Helpers - get user's jobs..
-  // Template.job.helpers({
-  // });
+  Template.jobs.helpers({
+    'jobs': function(){
+      var userId = Meteor.user()._id
+      return Jobs.find().fetch();
+    }
+  });
 
-  // NewJob events
+  // Job specific events
+  Template.job.events({
+    'click .deleteJob': function(){
+      Meteor.call('deleteJob', this._id);
+      // Flash confirmation message..
+    }
+  });
+
   Template.newjob.events({
     'submit form': function(event){
       event.preventDefault();
@@ -15,18 +25,23 @@ if (Meteor.isClient) {
       var salary = $('[name=salary]').val();
       var location = $('[name=location]').val();
       var description = $('[name=description]').val();
-
       Meteor.call('createJob', title, salary, location, description)
+      // Flash confirmation message..
+      // https://atmospherejs.com/mrt/flash-messages
     }
+
   });
 }
 
 if (Meteor.isServer) {
-  Meteor.publish('jobs');
+  Meteor.publish('jobs', function(){
+    var currentUser = this.userId;
+    return Jobs.find({user_id: currentUser });
+  });
 
   Meteor.methods({
     'createJob': function(title, salary, location, description){
-      jobs.insert({
+      Jobs.insert({
         title: title,
         salary: salary,
         location: location,
@@ -34,5 +49,17 @@ if (Meteor.isServer) {
         user_id: this.userId
       });
     },
+    'deleteJob': function(jobId){
+      Jobs.remove(jobId);
+    }
   });
 }
+
+// 'click .removePlayer': function(){
+// var selectedPlayer = Session.get('selectedPlayer');
+// Meteor.call('removePlayerData', selectedPlayer);
+// },
+
+// 'removePlayerData': function(selectedPlayer) {
+// PlayersList.remove(selectedPlayer);
+// },

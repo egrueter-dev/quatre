@@ -1,17 +1,27 @@
-<template name="Jobs">
+<template name="jobs">
   <section class="content-header">
     <h1> Jobs </h1>
     {{> newjob }}
-    {{> job }}
+
+    {{#each jobs}}
+      {{> job }}
+    {{/each}}
+
   </section>
 </template>
 
 <template name="job">
-  <p> Each Job goes here </p>
+  <p> Add add confirmation to delete button</p>
+  <p> {{ title }} </p>
+  <p> {{ salary }} </p>
+  <p> {{ location }} </p>
+  <p> {{ description }} </p>
+  <button class='deleteJob' value='{{id}}'>Delete Job</button>
 </template>
 
 <template name="newjob">
   <p> New Job prompt goes here</p>
+  <p>how does this UI look?</p>
   <form class="newjob">
     <p>Title: <input type="title" name="title"></p>
     <p>Salary: <input type="salary" name="salary"></p>
