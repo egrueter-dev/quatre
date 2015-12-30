@@ -19,6 +19,11 @@ if (Meteor.isClient) {
   });
 
   Template.newjob.events({
+    // If user jobs > 2 prevent the addition of more
+    // Jobs untill payment is successfull
+    // Throw up a modal with current payment information,
+    // Then allow payment for additional jobs to happen
+
     'submit form': function(event){
       event.preventDefault();
       var title = $('[name=title]').val();
@@ -29,7 +34,6 @@ if (Meteor.isClient) {
       // Flash confirmation message..
       // https://atmospherejs.com/mrt/flash-messages
     }
-
   });
 }
 

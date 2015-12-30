@@ -1,22 +1,12 @@
-<template name="jobs">
-  <section class="content-header">
-    <h1> Jobs </h1>
-    {{> newjob }}
-
-    {{#each jobs}}
-      {{> job }}
-    {{/each}}
-
-  </section>
-</template>
-
 <template name="job">
-  <p> Add add confirmation to delete button</p>
-  <p> {{ title }} </p>
-  <p> {{ salary }} </p>
-  <p> {{ location }} </p>
-  <p> {{ description }} </p>
-  <button class='deleteJob' value='{{id}}'>Delete Job</button>
+  <tr>
+    <td><a href="pages/examples/invoice.html">timestamp</a></td>
+    <td>{{ title }}</td>
+    <td><span class="label label-warning">Pending</span></td>
+    <td>
+      <button class='deleteJob' value='{{id}}'>Delete Job</button>
+    </td>
+  </tr>
 </template>
 
 <template name="newjob">
@@ -30,4 +20,51 @@
     <p><input type="submit" value="Create Job"></p>
   </form>
 </template>
+
+<template name='jobs'>
+  <section class="content-header">
+    <h1> Jobs </h1>
+    <section class="content">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="box">
+            <div class="box-body">
+              <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                  <li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="true">My Jobs</a></li>
+                  <li class=""><a href="#tab_2" data-toggle="tab" aria-expanded="false">New Job</a></li>
+                </ul>
+                <div class="tab-content">
+                  <div class="tab-pane active" id="tab_1">
+                    <div class="table-responsive">
+                      <table class="table no-margin">
+                        <thead>
+                          <tr>
+                            <th>Date Created</th>
+                            <th>Title</th>
+                            <th>Status</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                         {{#each jobs}}
+                           {{> job }}
+                         {{/each}}
+                        </tbody>
+                      </table>
+                    </div>
+                                    </div>
+                  <div class="tab-pane" id="tab_2">
+                    {{> newjob }}
+                  </div>
+                </div>
+              </div>
+              <canvas id="" style="height: 217px; width: 434px;" width="868" height="434"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+</template>
+
 
