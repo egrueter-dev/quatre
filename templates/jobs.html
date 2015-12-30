@@ -1,10 +1,10 @@
 <template name="job">
   <tr>
-    <td><a href="pages/examples/invoice.html">timestamp</a></td>
-    <td>{{ title }}</td>
+    <td>timestamp </td>
+    <td><p class='job-details'><a href="">{{Title}} (no title) option</a></p></td>
     <td><span class="label label-warning">Pending</span></td>
     <td>
-      <button class='deleteJob' value='{{id}}'>Delete Job</button>
+      <button class='deleteJob' value='{{id}}'>Delete Job (style this properly)</button>
     </td>
   </tr>
 </template>
@@ -17,8 +17,12 @@
     <p>Salary: <input type="salary" name="salary"></p>
     <p>Location: <input type="location" name="location"></p>
     <p>Description: <input type="description" name="description"></p>
-    <p><input type="submit" value="Create Job"></p>
+    <p><input type="submit" value="Create Job (flash and redirect to the job page"></p>
   </form>
+</template>
+
+<template name="jobs-layout">
+
 </template>
 
 <template name='jobs'>
@@ -46,13 +50,13 @@
                           </tr>
                         </thead>
                         <tbody>
-                         {{#each jobs}}
-                           {{> job }}
-                         {{/each}}
+                          {{#each jobs}}
+                          {{> job }}
+                          {{/each}}
                         </tbody>
                       </table>
                     </div>
-                                    </div>
+                  </div>
                   <div class="tab-pane" id="tab_2">
                     {{> newjob }}
                   </div>
@@ -66,5 +70,6 @@
     </section>
   </section>
 </template>
+
 
 

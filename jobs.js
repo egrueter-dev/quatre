@@ -10,12 +10,15 @@ if (Meteor.isClient) {
     }
   });
 
+  Template.job.helpers({
+  });
+
   // Job specific events
   Template.job.events({
     'click .deleteJob': function(){
       Meteor.call('deleteJob', this._id);
       // Flash confirmation message..
-    }
+    },
   });
 
   Template.newjob.events({
