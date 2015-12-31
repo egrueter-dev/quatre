@@ -46,6 +46,9 @@ if (Meteor.isClient) {
           enabled: false
         }
       },
+      credits: {
+        enabled: false
+      },
       yAxis: {
         gridLineWidth: 0,
         minorGridLineWidth: 0,
@@ -69,8 +72,8 @@ if (Meteor.isClient) {
           lineWidth: 0,
           marker: {
             enabled: false
-           // lineWidth: 1,
-           // lineColor: '#666666'
+            // lineWidth: 1,
+            // lineColor: '#666666'
           }
         }
       },

@@ -1,7 +1,14 @@
 Jobs = new Mongo.Collection('jobs');
 
+// Template Helpers, Events and Methods
+//  - jobs template
+//  - job  template
+//  - newjob template
+
 if (Meteor.isClient) {
   Meteor.subscribe('jobs')
+
+  // Helpers
 
   Template.jobs.helpers({
     'jobs': function(){
@@ -11,9 +18,14 @@ if (Meteor.isClient) {
   });
 
   Template.job.helpers({
+
   });
 
-  // Job specific events
+  Template.jobShow.helpers({
+
+  });
+
+  // Events
   Template.job.events({
     'click .deleteJob': function(){
       Meteor.call('deleteJob', this._id);

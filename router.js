@@ -23,8 +23,15 @@ Router.route('/profile', {onBeforeAction});
 
 // This route needs to be refactored
 
-Router.route('/jobs/:_id',function() {
-
+Router.route('/jobs/:_id', {
+  onBeforeAction,
+  name: 'job.show',
+  data: function(){
+    var currentJob = this.params._id;
+    var response = Jobs.findOne({ _id: currentJob });
+    console.log(response);
+    return response
+  }
 });
 
 // The below should not conform to the 'main' template.
