@@ -1,27 +1,20 @@
 Jobs = new Mongo.Collection('jobs');
 
-// Template Helpers, Events and Methods
+// Template Helpers, Events and Methods for:
 //  - jobs template
 //  - job  template
 //  - newjob template
+//  - jobShow template
 
 if (Meteor.isClient) {
   Meteor.subscribe('jobs')
 
   // Helpers
-
   Template.jobs.helpers({
     'jobs': function(){
       var userId = Meteor.user()._id
       return Jobs.find().fetch();
     }
-  });
-
-  Template.job.helpers({
-  });
-
-  Template.jobShow.helpers({
-
   });
 
   // Events
@@ -33,6 +26,45 @@ if (Meteor.isClient) {
     'click .label': function(){
       Meteor.call('updateActivity', this._id, this.active);
     }
+  });
+
+  Template.jobShow.events({
+    'keyup [name=title]': function(event){
+      if(event.which == 13 || event.which == 27) {
+        $(event.target).blur();
+      } else {
+        var title = $(event.target).val();
+        var jobId = this._id
+        Meteor.call('updateJobTitle', jobId, title);
+      }
+    },
+    'keyup [name=salary]': function(event){
+      if(event.which == 13 || event.which == 27) {
+        $(event.target).blur();
+      } else {
+        var salary = $(event.target).val();
+        var jobId = this._id
+        Meteor.call('updateJobSalary', jobId, salary);
+      }
+    },
+    'keyup [name=location]': function(event){
+      if(event.which == 13 || event.which == 27) {
+        $(event.target).blur();
+      } else {
+        var location = $(event.target).val();
+        var jobId = this._id
+        Meteor.call('updateJobLocation', jobId, location);
+      }
+    },
+    'keyup [name=description]': function(event){
+      if(event.which == 13 || event.which == 27) {
+        $(event.target).blur();
+      } else {
+        var description = $(event.target).val();
+        var jobId = this._id
+        Meteor.call('updateJobDescription', jobId, description);
+      }
+    },
   });
 
   Template.newjob.events({
@@ -48,8 +80,9 @@ if (Meteor.isClient) {
       var location = $('[name=location]').val();
       var description = $('[name=description]').val();
       Meteor.call('createJob', title, salary, location, description)
-      event.target.text.value = "";
 
+      // Clear form and redirect!
+      event.target.text.value = "";
       // Flash confirmation message..
       // https://atmospherejs.com/mrt/flash-messages
     }
@@ -70,7 +103,7 @@ if (Meteor.isServer) {
         location: location,
         description: description,
         user_id: this.userId,
-        active: true // Inacive jobs Yellow, active jobs are Green.
+        active: true
       });
     },
     'deleteJob': function(jobId){
@@ -82,6 +115,18 @@ if (Meteor.isServer) {
       } else {
         Jobs.update({_id: jobId}, {$set: { active: true }});
       }
+    },
+    'updateJobTitle': function(jobId, title){
+      Jobs.update({ _id: jobId }, {$set: { title: title }});
+    },
+    'updateJobSalary': function(jobId, salary){
+      Jobs.update({ _id: jobId }, {$set: { salary: salary }});
+    },
+    'updateJobLocation': function(jobId, location){
+      Jobs.update({ _id: jobId }, {$set: { location: location }});
+    },
+    'updateJobDescription': function(jobId, description){
+      Jobs.update({ _id: jobId }, {$set: { description: description }});
     }
   });
 }

@@ -2,13 +2,13 @@
   <tr>
     <td>timestamp </td>
     <a href="{{pathFor route='job.show' }}">{{title}} or (no title)</a>
-      {{#if active}}
-          <td><span class="label label-success">active</span></td>
-      {{else}}
-          <td><span class="label label-warning">inactive</span></td>
-      {{/if}}
+    {{#if active}}
+    <td><span class="label label-success">active</span></td>
+    {{else}}
+    <td><span class="label label-warning">inactive</span></td>
+    {{/if}}
     <td>
-      <button class='deleteJob'>Delete Job (style this properly)</button>
+      <p><button class="btn btn-error deleteJob" type="submit" value="e">Delete</button></p>
     </td>
   </tr>
 </template>
@@ -88,14 +88,34 @@
 
 <template name='jobShow'>
   <section class="content-header">
-    <h1> Jobs </h1>
+    <h1> {{title}} </h1>
+    <p> Put a stylish back button on this page </p>
+    <p> Add flashy green validation for forms. </p>
+    <p> Further Style UI </p>
     <section class="content">
       <div class="row">
         <div class="col-md-12">
           <div class="box">
-            <p> Put a stylish back button on this page </p>
-            {{_id}}
-            {{title}}
+            <form role="form" lpformnum="2" _lpchecked="1">
+              <!-- text input -->
+              <div class="form-group">
+                <label>Title:</label>
+                <input type="text" name='title' class="form-control" value="{{title}}">
+              </div>
+              <div class="form-group">
+                <label>Salary:</label>
+                <input type="text" name='salary' class="form-control" value="{{salary}}">
+              </div>
+              <div class="form-group">
+                <label>Location:</label>
+                <input type="text" name='location' class="form-control" value="{{location}}">
+              </div>
+              <div class="form-group">
+                <label>Description:</label>
+                <textarea name="description" class="form-control" rows="3" value="{{description}}"></textarea>
+              </div>
+              <p><button class="btn btn-primary" type="submit" value="Create Job (flash and redirect to the job page">Save Job</button></p>
+            </form>
             <canvas id="" style="height: 217px; width: 434px;" width="868" height="434"></canvas>
           </div>
         </div>
