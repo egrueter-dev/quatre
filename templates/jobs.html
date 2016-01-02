@@ -1,4 +1,131 @@
-<template name="Jobs">
-  <h1> Jobs </h1>
+<template name="job">
+  <tr>
+    <td>timestamp </td>
+    <a href="{{pathFor route='job.show' }}">{{title}} or (no title)</a>
+    {{#if active}}
+    <td><span class="label label-success">active</span></td>
+    {{else}}
+    <td><span class="label label-warning">inactive</span></td>
+    {{/if}}
+    <td>
+      <p><button class="btn btn-error deleteJob" type="submit" value="e">Delete</button></p>
+    </td>
+  </tr>
 </template>
+
+<template name="newjob">
+  <div class="box">
+    <div class="box-body">
+      <form role="form" lpformnum="2" _lpchecked="1">
+        <!-- text input -->
+        <div class="form-group">
+          <label>Title:</label>
+          <input type="text" name='title' class="form-control" placeholder="Enter ...">
+        </div>
+        <div class="form-group">
+          <label>Salary:</label>
+          <input type="text" name='salary' class="form-control" placeholder="Enter ...">
+        </div>
+        <div class="form-group">
+          <label>Location:</label>
+          <input type="text" name='location' class="form-control" placeholder="Enter ...">
+        </div>
+        <div class="form-group">
+          <label>Description:</label>
+          <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+        </div>
+        <p><button class="btn btn-primary" type="submit" value="Create Job (flash and redirect to the job page">Create Job</button></p>
+      </form>
+    </div>
+  </div>
+</template>
+
+<template name='jobs'>
+  <section class="content-header">
+    <h1> Jobs </h1>
+    <section class="content">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="box">
+            <div class="box-body">
+              <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                  <li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="true">My Jobs</a></li>
+                  <li class=""><a href="#tab_2" data-toggle="tab" aria-expanded="false">New Job</a></li>
+                </ul>
+                <div class="tab-content">
+                  <div class="tab-pane active" id="tab_1">
+                    <div class="table-responsive">
+                      <table class="table no-margin">
+                        <thead>
+                          <tr>
+                            <th>Date Created</th>
+                            <th>Title</th>
+                            <th>Status</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {{#each jobs}}
+                          {{> job }}
+                          {{/each}}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div class="tab-pane" id="tab_2">
+                    {{> newjob }}
+                  </div>
+                </div>
+              </div>
+              <canvas id="" style="height: 217px; width: 434px;" width="868" height="434"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+</template>
+
+<template name='jobShow'>
+  <section class="content-header">
+    <h1> {{title}} </h1>
+    <p> Put a stylish back button on this page </p>
+    <p> Add flashy green validation for forms. </p>
+    <p> Further Style UI </p>
+    <section class="content">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="box">
+            <form role="form" lpformnum="2" _lpchecked="1">
+              <!-- text input -->
+              <div class="form-group">
+                <label>Title:</label>
+                <input type="text" name='title' class="form-control" value="{{title}}">
+              </div>
+              <div class="form-group">
+                <label>Salary:</label>
+                <input type="text" name='salary' class="form-control" value="{{salary}}">
+              </div>
+              <div class="form-group">
+                <label>Location:</label>
+                <input type="text" name='location' class="form-control" value="{{location}}">
+              </div>
+              <div class="form-group">
+                <label>Description:</label>
+                <textarea name="description" class="form-control" rows="3" value="{{description}}"></textarea>
+              </div>
+              <p><button class="btn btn-primary" type="submit" value="Create Job (flash and redirect to the job page">Save Job</button></p>
+            </form>
+            <canvas id="" style="height: 217px; width: 434px;" width="868" height="434"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+</template>
+
+
+
+
+
 

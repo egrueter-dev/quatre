@@ -3,10 +3,55 @@
 </head>
 
 <template name="main">
-  {{#AdminLTE skin="blue-light" fixed="true"}}
-  <h1>Main Application Template</h1>
-  <h5>This is what the user sees when logged in...</h5>
-  <aside class="main-sidebar">
+  {{#AdminLTE skin="blue" fixed="true"}}
+  <header class="main-header">
+  <a href="../../index2.html" class="logo">
+    <!-- LOGO -->
+    AdminLTE
+  </a>
+  <nav class="navbar navbar-static-top" role="navigation">
+    <div class="navbar-custom-menu">
+      <ul class="nav navbar-nav">
+        <li class="dropdown user user-menu">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+            <span class="hidden-xs">{{username}}</span>
+          </a>
+          <ul class="dropdown-menu">
+            <li class="user-header">
+              <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+              <p>
+              {{username}}
+                <small>Position title here</small>
+              </p>
+            </li>
+            <li class="user-body">
+              <div class="col-xs-4 text-center">
+                <a href="#">Followers</a>
+              </div>
+              <div class="col-xs-4 text-center">
+                <a href="#">Sales</a>
+              </div>
+              <div class="col-xs-4 text-center">
+                <a href="#">Friends</a>
+              </div>
+            </li>
+            <li class="user-footer">
+              <div class="pull-left">
+                <a href="#" class="btn btn-default btn-flat profile">Profile</a>
+              </div>
+              <div class="pull-right">
+                  <a href="#" class="btn btn-default btn-flat logout">Sign out</a>
+              </div>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+   <h5>This is what the user sees when logged in...</h5>
+  <div class="main-sidebar">
     <div class="sidebar">
       <div class="user-panel">
         <div class="pull-left image"></div>
@@ -16,26 +61,33 @@
       </div>
       <ul class="sidebar-menu">
         <li class="header">HEADER</li>
-        <li><a href="{{pathFor route='dashboard'}}">Dashboard</a></li>
-        <li><a href="{{pathFor route='inbox'}}">Inbox</a></li>
-        <li><a href="{{pathFor route='jobs'}}">Jobs</a></li>
-        <li><a href="{{pathFor route='teams'}}">Teams</a></li>
-        <li><a href="{{pathFor route='messages'}}">Messages</a></li>
+        <li><a href="{{pathFor route='dashboard'}}">
+            <i class="fa fa-dashboard"></i>
+            Dashboard</a></li>
+        <li><a href="{{pathFor route='inbox'}}">
+            <i class="fa fa-envelope"></i>
+            Inbox
+            <small class="label pull-right bg-red">3</small></a></li>
+        <li><a href="{{pathFor route='jobs'}}">
+            <i class="fa fa-files-o"></i>
+            Jobs</a></li>
+        <li><a href="{{pathFor route='teams'}}">
+            <i class="fa fa-users"></i>
+            Teams</a></li>
+        <li><a href="{{pathFor route='messages'}}">
+            <i class="fa fa-edit"></i>
+            Messages</a></li>
+        <li><a href="{{pathFor route='profile'}}">
+            <i class="fa fa-gear"></i>
+            Profile</a></li>
       </ul>
     </div>
-  </aside>
-  {{/AdminLTE}}
-  {{> yield }}
+  </div>
+  <div class="content-wrapper" style="min-height: 355px;">
+    {{> yield }}
+  </div>
   <p>Copyright &copy; Todos, 2015 </p>
+  {{/AdminLTE}}
 </template>
-
-<template name="landing">
-  <h1> quatre - landing page </h1>
-  <form>
-    <input type='text' name='email' placeholder='you@email.com'>
-    <input type='submit'>
-  </form>
-</template>
-
 
 

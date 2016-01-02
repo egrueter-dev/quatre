@@ -18,3 +18,9 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 
 iron:router
 mfactory:admin-lte
+fortawesome:fontawesome
+accounts-password
+themeteorchef:jquery-validation
+cfs:standard-packages
+cfs:gridfs
+maazalik:highcharts
