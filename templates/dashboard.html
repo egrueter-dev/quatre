@@ -16,64 +16,96 @@
           </div>
           <div class="box-body">
             <div class="chart">
-             {{> highchartsHelper chartId="test" chartWidth="100%" charHeight="100%" chartObject=topGenresChart}}
-             <canvas id="areaChart" style="height: 56px; width: 414px;" width="828" height="12"></canvas>
+              {{> highchartsHelper chartId="test" chartWidth="100%" charHeight="100%" chartObject=topGenresChart}}
+              <canvas id="areaChart" style="height: 56px; width: 414px;" width="828" height="12"></canvas>
+              <div class="col-md-12">
+                <p class="text-center">
+                <strong>Goal Completion</strong>
+                </p>
+                <div class="progress-group">
+                  <span class="progress-text">Linkedin</span>
+                  <span class="progress-number"><b>1600</b>/2000</span>
+
+                  <div class="progress sm">
+                    <div class="progress-bar progress-bar-aqua" style="width: 80%"></div>
+                  </div>
+                </div>
+                <div class="progress-group">
+                  <span class="progress-text">Twitter</span>
+                  <span class="progress-number"><b>3100</b>/4000</span>
+
+                  <div class="progress sm">
+                    <div class="progress-bar progress-bar-red" style="width: 80%"></div>
+                  </div>
+                  <div class="progress-group">
+                    <span class="progress-text">Facebook</span>
+                    <span class="progress-number"><b>4800</b>/8000</span>
+                    <div class="progress sm">
+                      <div class="progress-bar progress-bar-green" style="width: 80%"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="box box-danger">
-          <div class="box-header with-border">
-            <h3 class="box-title">Social Networks</h3>
-            <div class="box-tools pull-right">
-              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-              </button>
-              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+          <div class="box box-danger">
+            <div class="box-header with-border">
+              <h3 class="box-title">Social Networks</h3>
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
             </div>
-          </div>
-          <div class="box-body">
-            <div class="nav-tabs-custom">
-            <ul class="nav nav-tabs">
-              <li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="true">Linkedin</a></li>
-              <li class=""><a href="#tab_2" data-toggle="tab" aria-expanded="false">Twitter</a></li>
-              <li class=""><a href="#tab_3" data-toggle="tab" aria-expanded="false">Facebook</a></li>
-            </ul>
-            <div class="tab-content">
-              <div class="tab-pane active" id="tab_1">
-                <ul>
-                  <li> Show groups</li>
-                  <li> Posting Frequency Selector </li>
-                  <li> Enabled/Pause </li>
-                  <a class="btn btn-app">
-                    <i class='fa fa-play'></i>
-                  </a>
-                  <a class="btn btn-app">
-                    <i class='fa fa-pause'></i>
-                  </a>
+            <div class="box-body">
+              <div class="nav-tabs-custom style='box-shadow: none'">
+                <ul class="nav nav-tabs">
+                  <li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="true">Linkedin</a></li>
+                  <li class=""><a href="#tab_2" data-toggle="tab" aria-expanded="false">Twitter</a></li>
+                  <li class=""><a href="#tab_3" data-toggle="tab" aria-expanded="false">Facebook</a></li>
                 </ul>
-                <p>Exactly like the original bootstrap tabs except you should use
-                  the custom wrapper <code>.nav-tabs-custom</code> to achieve this style.</p>
+                <div class="tab-content">
+                  <div class="tab-pane active" id="tab_1">
+                    <div class="box box-widget widget-user-2">
+                      <div class="widget-user-header bg-blue">
+                        <div class="widget-user-image">
+                          <img class="img-circle" src="" alt="User Avatar">
+                        </div>
+                        <h3 class="widget-user-username">Erik Grueter</h3>
+                        <h5 class="widget-user-desc">Linkedin Account</h5>
+                      </div>
+                    </div>
+                    <li> Show groups </li>
+                    <li> Posting Frequency Selector </li>
+                    <li> Enabled/Pause </li>
+                    <a class="btn btn-app">
+                      <i class='fa fa-play'></i>
+                    </a>
+                    <a class="btn btn-app">
+                      <i class='fa fa-pause'></i>
+                    </a>
+                  </div>
+                  <div class="tab-pane" id="tab_2">
+                    <div class="social-cta" style="padding: 100px;">
+                      <a class="btn btn-block btn-social btn-twitter">
+                        <i class="fa fa-twitter"></i> Sign in with Twitter
+                      </a>
+                    </div>
+                  </div>
+                  <div class="tab-pane" id="tab_3">
+                    <div class="social-cta" style="padding: 100px;">
+                      <a class="btn btn-block btn-social btn-facebook">
+                        <i class="fa fa-facebook"></i> Sign in with Facebook
+                      </a>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="tab-pane" id="tab_2">
-                <ul>
-                  <li>Twitter connect prompt if not connected</li>
-                </ul>
-              </div>
-              <div class="tab-pane" id="tab_3">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                It has survived not only five centuries, but also the leap into electronic typesetting,
-                remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
-                sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
-                like Aldus PageMaker including versions of Lorem Ipsum.
-              </div>
+              <canvas id="pieChart" style="height: 217px; width: 434px;" width="868" height="434"></canvas>
             </div>
-          </div>
-            <canvas id="pieChart" style="height: 217px; width: 434px;" width="868" height="434"></canvas>
           </div>
         </div>
       </div>
     </div>
   </section>
 </template>
-

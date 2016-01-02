@@ -12,7 +12,8 @@ var onBeforeAction = function(){
   }
 }
 
-// This could probably be dried up
+// This could probably be DRY'ed up
+
 Router.route('/dashboard', {onBeforeAction});
 Router.route('/inbox', {onBeforeAction});
 Router.route('/jobs', {onBeforeAction});
@@ -20,6 +21,7 @@ Router.route('/teams', {onBeforeAction});
 Router.route('/messages', {onBeforeAction});
 Router.route('/profile', {onBeforeAction});
 
+Router.route('/jobsearch', {onBeforeAction});
 
 // This route needs to be refactored
 
