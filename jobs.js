@@ -18,7 +18,6 @@ if (Meteor.isClient) {
   });
 
   Template.job.helpers({
-
   });
 
   Template.jobShow.helpers({
@@ -31,6 +30,9 @@ if (Meteor.isClient) {
       Meteor.call('deleteJob', this._id);
       // Flash confirmation message..
     },
+    'click .label': function(){
+      Meteor.call('updateActivity', this._id, this.active);
+    }
   });
 
   Template.newjob.events({
@@ -46,6 +48,8 @@ if (Meteor.isClient) {
       var location = $('[name=location]').val();
       var description = $('[name=description]').val();
       Meteor.call('createJob', title, salary, location, description)
+      event.target.text.value = "";
+
       // Flash confirmation message..
       // https://atmospherejs.com/mrt/flash-messages
     }
@@ -65,20 +69,20 @@ if (Meteor.isServer) {
         salary: salary,
         location: location,
         description: description,
-        user_id: this.userId
+        user_id: this.userId,
+        active: true // Inacive jobs Yellow, active jobs are Green.
       });
     },
     'deleteJob': function(jobId){
       Jobs.remove(jobId);
+    },
+    'updateActivity': function(jobId, active){
+      if(active){
+        Jobs.update({_id: jobId}, {$set: { active: false}});
+      } else {
+        Jobs.update({_id: jobId}, {$set: { active: true }});
+      }
     }
   });
 }
 
-// 'click .removePlayer': function(){
-// var selectedPlayer = Session.get('selectedPlayer');
-// Meteor.call('removePlayerData', selectedPlayer);
-// },
-
-// 'removePlayerData': function(selectedPlayer) {
-// PlayersList.remove(selectedPlayer);
-// },
