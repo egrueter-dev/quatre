@@ -1,84 +1,20 @@
 <template name="teams">
   <section class="content-header">
     <h1> Teams </h1>
+    <br />
     <div class="nav-tabs-custom">
       <ul class="nav nav-tabs">
-        <li class=""><a href="#tab_1" data-toggle="tab" aria-expanded="false">My Jobs</a></li>
-        <li class="active"><a href="#tab_2" data-toggle="tab" aria-expanded="true">New Job</a></li>
+        <li class=""><a href="#tab_1" data-toggle="tab" aria-expanded="false">My Team</a></li>
+        <li class="active"><a href="#tab_2" data-toggle="tab" aria-expanded="true">Team Memberships</a></li>
       </ul>
       <div class="tab-content">
         <div class="tab-pane" id="tab_1">
           <div class="table-responsive">
             <table class="table no-margin">
-              <thead>
-                <tr>
-                  <th>Date Created</th>
-                  <th>Title</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-
-                <tr>
-                  <td>timestamp </td>
-                  <a href="/jobs/tSTNqbKWBpAWgJHN5">Hey or (no title)</a>
-                  <td><span class="label label-success">active</span></td>
-                  <td>
-                    <p><button class="btn btn-error deleteJob" type="submit" value="e">Delete</button></p>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>timestamp </td>
-                  <a href="/jobs/fzr9CSJsNbdpzSv9Q">Hey or (no title)</a>
-
-                  <td><span class="label label-success">active</span></td>
-
-                  <td>
-                    <p><button class="btn btn-error deleteJob" type="submit" value="e">Delete</button></p>
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>timestamp </td>
-                  <a href="/jobs/RWJKvuEFHZKn53AYN">Hey or (no title)</a>
-
-                  <td><span class="label label-warning">inactive</span></td>
-
-                  <td>
-                    <p><button class="btn btn-error deleteJob" type="submit" value="e">Delete</button></p>
-                  </td>
-                </tr>
-
-              </tbody>
             </table>
           </div>
         </div>
         <div class="tab-pane active" id="tab_2">
-          <div class="box">
-            <div class="box-body">
-              <form role="form" lpformnum="2" _lpchecked="1">
-                <!-- text input -->
-                <div class="form-group">
-                  <label>Title:</label>
-                  <input type="text" name="title" class="form-control" placeholder="Enter ...">
-                </div>
-                <div class="form-group">
-                  <label>Salary:</label>
-                  <input type="text" name="salary" class="form-control" placeholder="Enter ...">
-                </div>
-                <div class="form-group">
-                  <label>Location:</label>
-                  <input type="text" name="location" class="form-control" placeholder="Enter ...">
-                </div>
-                <div class="form-group">
-                  <label>Description:</label>
-                  <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
-                </div>
-                <p><button class="btn btn-primary" type="submit" value="Create Job (flash and redirect to the job page">Create Job</button></p>
-              </form>
-            </div>
-          </div>
         </div>
       </div>
     </div>

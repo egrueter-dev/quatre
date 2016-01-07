@@ -21,7 +21,10 @@ Router.route('/teams', {onBeforeAction});
 Router.route('/messages', {onBeforeAction});
 Router.route('/profile', {onBeforeAction});
 
-Router.route('/jobsearch', {onBeforeAction});
+Router.route('/jobsearch', {
+  onBeforeAction,
+  layoutTemplate: 'jobsearch',
+});
 
 // This route needs to be refactored
 
