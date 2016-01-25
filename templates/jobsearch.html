@@ -1,49 +1,18 @@
 <template name="jobsearch">
   {{#AdminLTE skin="blue" fixed="true"}}
-  <header class="main-header">
-    <a href="../../index2.html" class="logo">
-      AdminLTE
-    </a>
-    <nav class="navbar navbar-static-top" role="navigation">
-      <div class="navbar-custom-menu">
-        <ul class="nav navbar-nav">
-          <li class="dropdown user user-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="https://almsaeedstudio.com/themes/AdminLTE/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">{{username}}</span>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="user-header">
-                <img src="https://almsaeedstudio.com/themes/AdminLTE/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-                <p>
-                {{username}}
-                <small>Position title here</small>
-                </p>
-              </li>
-              <li class="user-body">
-                <div class="col-xs-4 text-center">
-                  <a href="#">Followers</a>
-                </div>
-                <div class="col-xs-4 text-center">
-                  <a href="#">Sales</a>
-                </div>
-                <div class="col-xs-4 text-center">
-                  <a href="#">Friends</a>
-                </div>
-              </li>
-              <li class="user-footer">
-                <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat profile">Profile</a>
-                </div>
-                <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat logout">Sign out</a>
-                </div>
-              </li>
-            </ul>
-          </li>
-        </ul>
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="input-group">
+        <input type="text" class="form-control input-search jobsearch">
+        <span class="input-group-btn">
+          <button class="btn btn-search" type="button"><i class="glyphicon glyphicon-search"></i></button>
+        </span>
       </div>
-    </nav>
-  </header>
- {{/AdminLTE}}
+    </div>
+  </div>
+
+  {{ jobs }}
+
+  {{/AdminLTE}}
 </template>
+
